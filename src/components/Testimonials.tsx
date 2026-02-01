@@ -72,62 +72,41 @@ const Testimonials = () => {
   // Duplicate testimonials for infinite loop
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
-  const startAuto = () => {
-    if (intervalRef.current) return;
-    intervalRef.current = window.setInterval(() => {
-      const el = containerRef.current;
-      if (!el || !el.children || el.children.length === 0) return;
-
-      indexRef.current += 1;
-
-      // If we've scrolled through all original testimonials, reset to the beginning
-      if (indexRef.current >= testimonials.length) {
-        // Instantly jump to the first item (no animation)
-        const firstChild = el.children[0] as HTMLElement | undefined;
-        if (firstChild) {
-          el.scrollTo({ left: firstChild.offsetLeft, behavior: "auto" });
-        }
-        indexRef.current = 1; // Set to 1 so next iteration shows second item
-
-        // Then smoothly scroll to the next item
-        setTimeout(() => {
-          const nextChild = el.children[1] as HTMLElement | undefined;
-          if (nextChild) {
-            el.scrollTo({ left: nextChild.offsetLeft, behavior: "smooth" });
-          }
-        }, 50);
-      } else {
-        // Normal smooth scroll
-        const child = el.children[indexRef.current] as HTMLElement | undefined;
-        if (child) {
-          el.scrollTo({ left: child.offsetLeft, behavior: "smooth" });
-        }
-      }
-    }, 1200);
-  };
-
-  const stopAuto = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-  };
-
   useEffect(() => {
     const el = containerRef.current;
-    startAuto();
-    if (!el) return () => stopAuto();
-    const handleMouseEnter = () => stopAuto();
-    const handleMouseLeave = () => startAuto();
-    el.addEventListener("mouseenter", handleMouseEnter);
-    el.addEventListener("mouseleave", handleMouseLeave);
-    return () => {
-      stopAuto();
-      el.removeEventListener("mouseenter", handleMouseEnter);
-      el.removeEventListener("mouseleave", handleMouseLeave);
+    if (!el) return;
+
+    let animationId: number;
+
+    const scrollSpeed = 2; // px per frame
+
+    const autoScroll = () => {
+      if (!el) return;
+
+      el.scrollLeft += scrollSpeed;
+
+      // When scrolled half (original list length), reset
+      if (el.scrollLeft >= el.scrollWidth / 2) {
+        el.scrollLeft = 0;
+      }
+
+      animationId = requestAnimationFrame(autoScroll);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [testimonials.length]);
+
+    animationId = requestAnimationFrame(autoScroll);
+
+    const stop = () => cancelAnimationFrame(animationId);
+    const start = () => requestAnimationFrame(autoScroll);
+
+    el.addEventListener("mouseenter", stop);
+    el.addEventListener("mouseleave", start);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      el.removeEventListener("mouseenter", stop);
+      el.removeEventListener("mouseleave", start);
+    };
+  }, [1000]);
 
   return (
     <section id="testimonials" className="py-20 bg-background">
@@ -149,7 +128,7 @@ const Testimonials = () => {
         {/* Testimonials - Horizontal scroll */}
         <div
           ref={containerRef}
-          className="flex gap-6 overflow-x-auto py-4 md:gap-8 md:py-6 snap-x snap-mandatory hide-scrollbar"
+          className="flex gap-6 overflow-x-auto py-4 md:gap-8 md:py-6 hide-scrollbar"
           role="list"
         >
           {duplicatedTestimonials.map((testimonial, index) => (
@@ -205,7 +184,7 @@ const Testimonials = () => {
         {/* Google Reviews CTA */}
         <div className="text-center mt-12">
           <a
-            href="https://maps.app.goo.gl/EaKugstx8e97a6yZ7"
+            href="https://www.google.com/maps/place/Shiv+Shakti+Dental+Clinic/@23.1689269,72.6401287,916m/data=!3m1!1e3!4m8!3m7!1s0x395c2b006091d467:0xe8c76663ca012fa2!8m2!3d23.1689269!4d72.6401287!9m1!1b1!16s%2Fg%2F11vwsc2y9t?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"

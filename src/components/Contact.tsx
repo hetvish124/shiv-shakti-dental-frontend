@@ -30,6 +30,7 @@ const Contact = () => {
       preferredDate: "",
       message: "",
     });
+    console.log(formData);
   };
 
   const handleChange = (
@@ -86,7 +87,7 @@ const Contact = () => {
           {/* Map & Address */}
           <div className="space-y-6">
             {/* Google Map */}
-            <div className="rounded-xl overflow-hidden shadow-lg h-64 lg:h-80">
+            {/* <div className="rounded-xl overflow-hidden shadow-lg h-64 lg:h-80">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.0644261544073!2d72.62859231541167!3d23.18759598487567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2a3c9618d2ed%3A0x8a15bc9d4c8f4e1a!2sFortune%20Atlantis!5e0!3m2!1sen!2sin!4v1234567890"
                 width="100%"
@@ -97,7 +98,7 @@ const Contact = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Shiv Shakti Dental Clinic Location"
               />
-            </div>
+            </div> */}
 
             {/* Address Card */}
             <Card>

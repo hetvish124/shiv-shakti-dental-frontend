@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
-import { Phone, Menu, X, Sun, Moon } from "lucide-react";
+import { Phone, Menu, X} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useTheme } from "@/components/ThemeProvider";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,10 +58,6 @@ const Header = () => {
     navigate("/");
   };
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-card/95 backdrop-blur-md shadow-lg"
@@ -101,7 +95,7 @@ const Header = () => {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             {/* Theme Toggle */}
-            <button
+            {/* <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
               aria-label="Toggle theme"
@@ -111,7 +105,7 @@ const Header = () => {
               ) : (
                 <Sun className="w-5 h-5 text-foreground" />
               )}
-            </button>
+            </button> */}
             <a
               href="tel:+919313288482"
               className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
@@ -156,7 +150,7 @@ const Header = () => {
               ))}
               <div className="px-4 pt-4 border-t border-border mt-2 space-y-3">
                 {/* Theme Toggle for Mobile */}
-                <button
+                {/* <button
                   onClick={toggleTheme}
                   className="w-full flex items-center justify-center gap-2 p-3 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
                   aria-label="Toggle theme"
@@ -172,7 +166,7 @@ const Header = () => {
                       <span className="font-medium">Light Mode</span>
                     </>
                   )}
-                </button>
+                </button> */}
                 <Button className="w-full" asChild>
                   <a
                     href="https://wa.me/919313288482?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"

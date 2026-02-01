@@ -53,6 +53,26 @@ const Footer = () => {
     }
   };
 
+  const handleServiceClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    if (location.pathname === "/") {
+      const element = document.querySelector("#services");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // If we're on another page, navigate to homepage first, then scroll
+      navigate("/");
+      setTimeout(() => {
+        const element = document.querySelector("#services");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  };
   return (
     <footer className="bg-secondary pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -139,12 +159,13 @@ const Footer = () => {
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service}>
-                  <Link
-                    to="/#services"
+                  <a
+                    href="/#services"
+                    onClick={(e) => handleServiceClick(e)}
                     className="text-secondary-foreground/70 hover:text-primary transition-colors"
                   >
                     {service}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -156,13 +177,20 @@ const Footer = () => {
               Contact Us
             </h4>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-secondary-foreground/70">
-                  Fortune Atlantis, Raysan,
-                  <br />
-                  Gandhinagar, Gujarat 382426
-                </span>
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/EaKugstx8e97a6yZ7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors"
+                >
+                  <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span>
+                    Fortune Atlantis, Raysan,
+                    <br />
+                    Gandhinagar, Gujarat 382426
+                  </span>
+                </a>
               </li>
               <li>
                 <a
@@ -175,11 +203,11 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:info@shivshaktidental.com"
+                  href="mailto:ahalparadenish852@gmail.com?subject=Hello&body=Hi%20there!"
                   className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors"
                 >
                   <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                  info@shivshaktidental.com
+                  [EMAIL_ADDRESS]
                 </a>
               </li>
             </ul>

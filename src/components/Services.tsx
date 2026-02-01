@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Search, Shield, Sparkles, Smile, Scissors, Calendar, Heart, Crown, Zap, CheckSquare } from "lucide-react";
+import { Search, Shield, Sparkles, Smile, Scissors, Heart, Crown, Zap } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -141,12 +140,12 @@ const Services = () => {
                 </p>
 
                 {/* Price */}
-                <p className="text-primary font-semibold mb-4">{service.price}</p>
+                {/* <p className="text-primary font-semibold mb-4">{service.price}</p> */}
 
                 {/* CTA */}
-                <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                {/* <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   {service.cta}
-                </Button>
+                </Button> */}
               </CardContent>
             </Card>
           ))}
