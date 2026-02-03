@@ -32,8 +32,11 @@ const Header = () => {
     setIsMobileMenuOpen(false);
 
     if (link.href === "/doctor") {
-      // Navigate to doctor page
+      // Navigate to doctor page and scroll to top
       navigate("/doctor");
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
     } else if (link.hash) {
       // If we're on the homepage, just scroll to the section
       if (location.pathname === "/") {
