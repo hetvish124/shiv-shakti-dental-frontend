@@ -38,7 +38,7 @@ const DoctorProfile = () => {
             <main>
                 {/* Hero Section */}
                 <section className="relative min-h-[60vh] flex items-center pt-20 bg-gradient-to-br from-secondary via-secondary/95 to-primary/20">
-                    <div className="container mx-auto px-4 relative z-10">
+                    <div className="container mx-auto px-4 relative z-10 py-7">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             {/* Doctor Image */}
                             <div className="flex justify-center lg:justify-end order-1 lg:order-2">
@@ -116,24 +116,73 @@ const DoctorProfile = () => {
                                 return (
                                     <div
                                         key={index}
-                                        className="bg-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/50"
+                                        className="
+          group
+          bg-card rounded-2xl p-6
+          border border-border
+          transition-all duration-300 ease-out
+          hover:-translate-y-2
+          hover:shadow-xl hover:shadow-primary/10
+          hover:border-primary/50
+        "
                                     >
-                                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                                            <Icon className="w-6 h-6 text-primary" />
+                                        {/* Icon */}
+                                        <div
+                                            className="
+            w-12 h-12 mb-4
+            bg-primary/10 rounded-xl
+            flex items-center justify-center
+            transition-all duration-300 ease-out
+            group-hover:bg-primary
+            group-hover:scale-110
+            group-hover:rotate-3
+          "
+                                        >
+                                            <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                                         </div>
-                                        <h3 className="text-lg font-semibold text-foreground mb-2">
+
+                                        {/* Title */}
+                                        <h3
+                                            className="
+            text-lg font-semibold text-foreground mb-2
+            transition-all duration-300
+            group-hover:-translate-y-0.5
+          "
+                                        >
                                             {qual.title}
                                         </h3>
-                                        <p className="text-base font-medium text-primary mb-1">
+
+                                        {/* Details */}
+                                        <p
+                                            className="
+            text-base font-medium text-primary mb-1
+            transition-all duration-300
+            group-hover:-translate-y-0.5
+          "
+                                        >
                                             {qual.details}
                                         </p>
+
                                         {qual.institution && (
-                                            <p className="text-sm text-muted-foreground">
+                                            <p
+                                                className="
+              text-sm text-muted-foreground
+              transition-all duration-300
+              group-hover:opacity-90
+            "
+                                            >
                                                 {qual.institution}
                                             </p>
                                         )}
+
                                         {qual.year && (
-                                            <p className="text-sm text-muted-foreground mt-1">
+                                            <p
+                                                className="
+              text-sm text-muted-foreground mt-1
+              transition-all duration-300
+              group-hover:opacity-90
+            "
+                                            >
                                                 {qual.year}
                                             </p>
                                         )}
@@ -141,6 +190,7 @@ const DoctorProfile = () => {
                                 );
                             })}
                         </div>
+
                     </div>
                 </section>
 
@@ -213,16 +263,34 @@ const DoctorProfile = () => {
                                 <p className="text-muted-foreground mb-6">
                                     Book your appointment today and experience pain-free dental care
                                 </p>
-                                <Button size="lg" className="text-lg px-8" asChild>
+                                <Button
+                                    size="lg"
+                                    asChild
+                                    className="
+    text-lg px-8
+    transition-all duration-300 ease-out
+    hover:-translate-y-1
+    hover:shadow-xl hover:shadow-primary/20
+    active:translate-y-0
+  "
+                                >
                                     <a
                                         href="https://wa.me/919313288482?text=Hi, I would like to book an appointment with Dr. Karishma Patel at Shiv Shakti Dental Clinic"
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        className="flex items-center group"
                                     >
-                                        <Phone className="w-5 h-5 mr-2" />
+                                        <Phone
+                                            className="
+        w-5 h-5 mr-2
+        transition-transform duration-300
+        group-hover:scale-110 group-hover:rotate-6
+      "
+                                        />
                                         Book Appointment via WhatsApp
                                     </a>
                                 </Button>
+
                             </div>
                         </div>
                     </div>
