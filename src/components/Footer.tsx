@@ -142,13 +142,33 @@ const Footer = () => {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link)}
-                    className="text-secondary-foreground/70 hover:text-primary transition-colors"
+                    className="
+          group inline-block relative
+          text-secondary-foreground/70
+          transition-all duration-300 ease-out
+          hover:text-primary
+          hover:translate-x-1
+        "
                   >
                     {link.label}
+
+                    {/* Animated underline */}
+                    <span
+                      className="
+            absolute left-0 -bottom-0.5
+            h-[2px] w-full
+            bg-primary
+            scale-x-0
+            origin-left
+            transition-transform duration-300 ease-out
+            group-hover:scale-x-100
+          "
+                    />
                   </a>
                 </li>
               ))}
             </ul>
+
           </div>
 
           {/* Services */}
@@ -162,13 +182,33 @@ const Footer = () => {
                   <a
                     href="/#services"
                     onClick={(e) => handleServiceClick(e)}
-                    className="text-secondary-foreground/70 hover:text-primary transition-colors"
+                    className="
+          group inline-block relative
+          text-secondary-foreground/70
+          transition-all duration-300 ease-out
+          hover:text-primary
+          hover:translate-x-1
+        "
                   >
                     {service}
+
+                    {/* Animated underline */}
+                    <span
+                      className="
+            absolute left-0 -bottom-0.5
+            h-[2px] w-full
+            bg-primary
+            scale-x-0
+            origin-left
+            transition-transform duration-300 ease-out
+            group-hover:scale-x-100
+          "
+                    />
                   </a>
                 </li>
               ))}
             </ul>
+
           </div>
 
           {/* Contact Info */}
