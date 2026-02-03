@@ -56,7 +56,40 @@ const Header = () => {
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigate("/");
+    
+    // Smooth scroll to top
+    const startPosition = window.pageYOffset;
+    const duration = 1000;
+    let start: number | null = null;
+
+    const easeInOutCubic = (t: number): number => {
+      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    };
+
+    const animation = (currentTime: number) => {
+      if (start === null) start = currentTime;
+      const timeElapsed = currentTime - start;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+      
+      window.scrollTo(0, startPosition * (1 - ease));
+      
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    // If not on homepage, navigate first
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Scroll to top after navigation
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+    } else {
+      // Already on homepage, just scroll to top
+      requestAnimationFrame(animation);
+    }
   };
 
   return (
