@@ -57,12 +57,37 @@ const Pricing = () => {
         {/* Pricing Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pricingItems.map((item, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
+            <Card
+              key={index}
+              className="
+        group relative
+        border-border/50
+        transition-all duration-300 ease-out
+        hover:-translate-y-2
+        hover:shadow-xl hover:shadow-primary/10
+        hover:border-primary/30
+      "
+            >
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-card-foreground mb-2">
+                {/* Title */}
+                <h3
+                  className="
+            text-lg font-semibold text-card-foreground mb-2
+            transition-all duration-300
+            group-hover:-translate-y-1
+          "
+                >
                   {item.service}
                 </h3>
-                <div className="flex items-baseline gap-1 mb-4">
+
+                {/* Price */}
+                <div
+                  className="
+            flex items-baseline gap-1 mb-4
+            transition-all duration-300
+            group-hover:-translate-y-1
+          "
+                >
                   <span className="text-2xl font-bold text-primary">
                     {item.price}
                   </span>
@@ -72,13 +97,20 @@ const Pricing = () => {
                     </span>
                   )}
                 </div>
+
+                {/* Features */}
                 <ul className="space-y-2">
                   {item.includes.map((feature, i) => (
                     <li
                       key={i}
-                      className="flex items-center gap-2 text-muted-foreground"
+                      className="
+                flex items-center gap-2
+                text-muted-foreground
+                transition-all duration-300
+                group-hover:translate-x-1
+              "
                     >
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                      <Check className="w-4 h-4 text-primary flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
                       <span>{feature}</span>
                     </li>
                   ))}

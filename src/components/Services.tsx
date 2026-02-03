@@ -120,36 +120,75 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/30"
-            >
-              <CardContent className="p-6">
-                {/* Icon */}
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                  <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
-                </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-semibold text-card-foreground mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Price */}
-                {/* <p className="text-primary font-semibold mb-4">{service.price}</p> */}
-
-                {/* CTA */}
-                {/* <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  {service.cta}
-                </Button> */}
-              </CardContent>
-            </Card>
-          ))}
+  {services.map((service, index) => (
+    <Card
+      key={index}
+      className="
+        group relative
+        border-border/50
+        transition-all duration-300 ease-out
+        hover:-translate-y-2
+        hover:shadow-xl hover:shadow-primary/10
+        hover:border-primary/30
+      "
+    >
+      <CardContent className="p-6">
+        {/* Icon */}
+        <div
+          className="
+            w-14 h-14 mb-5
+            bg-primary/10 rounded-xl
+            flex items-center justify-center
+            transition-all duration-300 ease-out
+            group-hover:bg-primary
+            group-hover:scale-110
+            group-hover:rotate-3
+          "
+        >
+          <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
         </div>
+
+        {/* Content */}
+        <h3
+          className="
+            text-xl font-semibold text-card-foreground mb-3
+            transition-all duration-300
+            group-hover:-translate-y-1
+          "
+        >
+          {service.title}
+        </h3>
+
+        <p
+          className="
+            text-muted-foreground mb-4 leading-relaxed
+            transition-all duration-300
+            group-hover:-translate-y-1
+            group-hover:opacity-90
+          "
+        >
+          {service.description}
+        </p>
+
+        {/* CTA (optional) */}
+        {/*
+        <Button
+          variant="outline"
+          className="
+            w-full
+            transition-all duration-300
+            group-hover:bg-primary
+            group-hover:text-primary-foreground
+          "
+        >
+          {service.cta}
+        </Button>
+        */}
+      </CardContent>
+    </Card>
+  ))}
+</div>
+
       </div>
     </section>
   );

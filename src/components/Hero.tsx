@@ -52,7 +52,9 @@ const Hero = () => {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="text-lg px-8" asChild>
+            <Button size="lg" className="text-lg px-8  transition-transform duration-300 ease-out
+    hover:-translate-y-1
+    active:translate-y-0" asChild>
               <a
                 href="https://wa.me/919313288482?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
                 target="_blank"

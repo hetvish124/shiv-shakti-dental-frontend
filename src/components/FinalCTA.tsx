@@ -33,30 +33,53 @@ const FinalCTA = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="text-lg px-8"
               asChild
+              className="
+      text-lg px-8
+      transition-all duration-300 ease-out
+      hover:-translate-y-1
+      hover:shadow-xl hover:shadow-primary/20
+      active:translate-y-0
+    "
             >
               <a
                 href="https://wa.me/919313288482?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex items-center"
               >
-                <Calendar className="w-5 h-5 mr-2" />
+                <Calendar className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:scale-110" />
                 Schedule Your Visit Now
               </a>
             </Button>
+
             <Button
               variant="outline"
               size="lg"
-              className="text-lg px-8 bg-secondary-foreground/10 border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/20"
               asChild
+              className="
+    text-lg px-8
+    border-primary/40
+    text-primary
+    bg-transparent
+
+    transition-all duration-300 ease-out
+    hover:bg-primary hover:text-primary-foreground
+    hover:border-primary
+    hover:-translate-y-1
+    hover:shadow-lg hover:shadow-primary/20
+
+    active:translate-y-0
+  "
             >
-              <a href="tel:+917621833473">
-                <Phone className="w-5 h-5 mr-2" />
+              <a href="tel:+917621833473" className="flex items-center">
+                <Phone className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:scale-110" />
                 Call +91 7621833473
               </a>
             </Button>
+
           </div>
+
 
           {/* Trust Note */}
           <p className="mt-8 text-secondary-foreground/60">
