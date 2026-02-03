@@ -263,7 +263,7 @@ const DoctorProfile = () => {
                                 <p className="text-muted-foreground mb-6">
                                     Book your appointment today and experience pain-free dental care
                                 </p>
-                                <Button
+                                    <Button
                                     size="lg"
                                     asChild
                                     className="
@@ -275,7 +275,7 @@ const DoctorProfile = () => {
   "
                                 >
                                     <a
-                                        href="https://wa.me/919313288482?text=Hi, I would like to book an appointment with Dr. Karishma Patel at Shiv Shakti Dental Clinic"
+                                        href="https://wa.me/919313288482?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center group"
