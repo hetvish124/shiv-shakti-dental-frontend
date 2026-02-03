@@ -243,11 +243,13 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:ahalparadenish852@gmail.com?subject=Hello&body=Hi%20there!"
+                  href="mailto:ahalparadenish852@gmail.com?subject=hello&body=hello"
                   className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                  [EMAIL_ADDRESS]
+                    ahalparadenish852@gamil.com
                 </a>
               </li>
             </ul>
