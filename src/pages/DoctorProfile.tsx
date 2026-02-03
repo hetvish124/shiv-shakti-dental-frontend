@@ -73,7 +73,7 @@ const DoctorProfile = () => {
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                     <Button size="lg" className="text-lg px-8" asChild>
                                         <a
-                                            href="https://wa.me/919313288482?text=Hi, I would like to book an appointment with Dr. Karishma Patel"
+                                            href="https://wa.me/917621833473?text=Hi, I would like to book an appointment with Dr. Karishma Patel"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -210,7 +210,7 @@ const DoctorProfile = () => {
                             <div className="grid md:grid-cols-2 gap-6">
                                 {/* Phone Card */}
                                 <a
-                                    href="tel:+919313288482"
+                                    href="tel:+917621833473"
                                     className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/50 group"
                                 >
                                     <div className="flex items-start gap-4">
@@ -222,7 +222,7 @@ const DoctorProfile = () => {
                                                 Phone
                                             </h3>
                                             <p className="text-lg text-primary font-medium">
-                                                +91 9313288482
+                                                +91 7621833473
                                             </p>
                                             <p className="text-sm text-muted-foreground mt-1">
                                                 Call for appointments
@@ -245,7 +245,7 @@ const DoctorProfile = () => {
                                                 Email
                                             </h3>
                                             <p className="text-lg text-primary font-medium break-all">
-                                                ahalparadenish852@gmail.com
+                                                karishmaspatel26@gmail.com
                                             </p>
                                             <p className="text-sm text-muted-foreground mt-1">
                                                 Send us a message
@@ -275,7 +275,7 @@ const DoctorProfile = () => {
   "
                                 >
                                     <a
-                                        href="https://wa.me/919313288482?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
+                                        href="https://wa.me/917621833473?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center group"

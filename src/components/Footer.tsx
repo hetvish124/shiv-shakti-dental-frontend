@@ -234,22 +234,22 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+917621833473"
                   className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                  +91 98765 43210
+                  +91 7621833473
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:ahalparadenish852@gmail.com?subject=hello&body=hello"
+                  href="mailto:karishmaspatel26@gmail.com?subject=hello&body=hello"
                   className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                    ahalparadenish852@gamil.com
+                  karishmaspatel26@gmail.com
                 </a>
               </li>
             </ul>

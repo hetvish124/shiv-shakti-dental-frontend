@@ -144,15 +144,15 @@ const Header = () => {
               )}
             </button> */}
             <a
-              href="tel:+919313288482"
+              href="tel:+917621833473"
               className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span className="font-medium">+91 9313288482</span>
+              <span className="font-medium">+91 7621833473</span>
             </a>
             <Button asChild>
               <a
-                href="https://wa.me/919313288482?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
+                href="https://wa.me/917621833473?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -56,7 +56,7 @@ const Hero = () => {
     hover:-translate-y-1
     active:translate-y-0" asChild>
               <a
-                href="https://wa.me/919313288482?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
+                href="https://wa.me/917621833473?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
                 target="_blank"
                 rel="noopener noreferrer"
               >

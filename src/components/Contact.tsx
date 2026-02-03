@@ -43,20 +43,20 @@ const Contact = () => {
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 9313288482",
-      href: "tel:+919313288482",
+      value: "+91 7621833473",
+      href: "tel:+917621833473",
     },
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      value: "+91 9313288482",
-      href: "https://wa.me/919313288482?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic",
+      value: "+91 7621833473",
+      href: "https://wa.me/917621833473?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic",
     },
     {
       icon: Mail,
       label: "Email",
-      value: "ahalparadenish852@gmail.com",
-      href: "mailto:ahalparadenish852@gmail.com",
+      value: "karishmaspatel26@gmail.com",
+      href: "mailto:karishmaspatel26@gmail.com",
     },
     {
       icon: Clock,
