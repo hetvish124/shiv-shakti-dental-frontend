@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Phone, Menu, X} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const img = "../src/assets/logo.png";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,7 +104,7 @@ const Header = () => {
           {/* Logo */}
           <a href="/" onClick={handleLogoClick} className="flex items-center gap-4 h-16">
             <div className="w-12 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <img src={img} alt="logo" className="w-15 h-15 rounded-lg" />
+              <img src={logo} alt="logo" className="w-15 h-15 rounded-lg" />
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-extrabold text-foreground leading-tight">
