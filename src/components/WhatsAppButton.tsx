@@ -7,7 +7,7 @@ type Props = {
 const WhatsAppButton = ({ className = "" }: Props) => {
   return (
     <a
-      href="https://wa.me/919313288482?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
+      href="https://wa.me/917778044482?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
       target="_blank"
       rel="noopener noreferrer"
       className={`relative w-14 h-14 bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-primary-foreground rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 motion-safe:animate-bounce hover:animate-none ${className}`}
