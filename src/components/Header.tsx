@@ -106,7 +106,7 @@ const Header = () => {
             <div className="w-12 h-10 bg-primary rounded-lg flex items-center justify-center">
               <img src={logo} alt="logo" className="w-15 h-15 rounded-lg" />
             </div>
-            <div className="hidden sm:block">
+            <div>
               <h1 className="text-xl font-extrabold text-foreground leading-tight">
                 Shiv Shakti
               </h1>
