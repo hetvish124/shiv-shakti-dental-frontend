@@ -243,7 +243,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:karishmaspatel26@gmail.com?subject=hello&body=hello"
+                  // href="mailto:karishmaspatel26@gmail.com?subject=hello&body=hello"
                   className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"

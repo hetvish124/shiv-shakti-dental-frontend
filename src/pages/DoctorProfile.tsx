@@ -233,7 +233,7 @@ const DoctorProfile = () => {
 
                                 {/* Email Card */}
                                 <a
-                                    href="mailto:ahalparadenish852@gmail.com"
+                                    // href="mailto:ahalparadenish852@gmail.com"
                                     className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/50 group"
                                 >
                                     <div className="flex items-start gap-4">
