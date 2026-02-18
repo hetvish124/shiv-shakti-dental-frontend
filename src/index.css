@@ -69,25 +69,35 @@ All colors MUST be HSL.
 
     --sidebar: 210 40% 98%;
 
-    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    --font-sans:
+      "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 
-    --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-serif:
+      "Lora", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
-    --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --font-mono:
+      "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
 
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
 
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
 
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-sm:
+      0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
 
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow:
+      0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
 
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md:
+      0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
 
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg:
+      0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
 
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl:
+      0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
 
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
 
@@ -140,11 +150,16 @@ All colors MUST be HSL.
     --sidebar: 217 32% 17%;
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-sm:
+      0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow:
+      0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md:
+      0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg:
+      0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl:
+      0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
   }
 }
@@ -158,6 +173,113 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* ── Hero Section Animations ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.hero-fade-up {
+  opacity: 0;
+  animation: fadeUp 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+/* Staggered delays */
+.hero-delay-1 {
+  animation-delay: 0.15s;
+}
+.hero-delay-2 {
+  animation-delay: 0.35s;
+}
+.hero-delay-3 {
+  animation-delay: 0.55s;
+}
+.hero-delay-4 {
+  animation-delay: 0.75s;
+}
+.hero-delay-5 {
+  animation-delay: 0.95s;
+}
+
+/* Subtle Ken-Burns zoom on the background image */
+@keyframes kenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.hero-bg-zoom {
+  animation: kenBurns 10s ease-in-out infinite alternate;
+}
+
+/* ── Scroll Reveal Animations ── */
+/* Base state: hidden */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal          { transform: translateY(40px); }
+.reveal-left     { transform: translateX(-50px); }
+.reveal-right    { transform: translateX(50px); }
+.reveal-scale    { transform: scale(0.88); }
+
+/* Visible state (added by IntersectionObserver) */
+.reveal-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Stagger helpers – apply to individual children */
+.reveal-delay-1  { transition-delay: 0.15s; }
+.reveal-delay-2  { transition-delay: 0.30s; }
+.reveal-delay-3  { transition-delay: 0.45s; }
+.reveal-delay-4  { transition-delay: 0.60s; }
+.reveal-delay-5  { transition-delay: 0.75s; }
+.reveal-delay-6  { transition-delay: 0.90s; }
+.reveal-delay-7  { transition-delay: 1.05s; }
+.reveal-delay-8  { transition-delay: 1.20s; }
+.reveal-delay-9  { transition-delay: 1.35s; }
+.reveal-delay-10 { transition-delay: 1.50s; }
+.reveal-delay-11 { transition-delay: 1.65s; }
+.reveal-delay-12 { transition-delay: 1.80s; }
 
 /* Hide scrollbar for the horizontal testimonials container */
 .hide-scrollbar {

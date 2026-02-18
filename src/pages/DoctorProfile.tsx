@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactButtons from "@/components/ContactButtons";
 import doctorImage from "@/assets/doctor-karishma.png";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const DoctorProfile = () => {
     const qualifications = [
@@ -32,6 +33,14 @@ const DoctorProfile = () => {
         },
     ];
 
+    const heroInfoRef = useScrollReveal<HTMLDivElement>(0.1);
+    const heroImgRef = useScrollReveal<HTMLDivElement>(0.1);
+    const qualHeaderRef = useScrollReveal<HTMLDivElement>();
+    const qualGridRef = useScrollReveal<HTMLDivElement>(0.05);
+    const contactHeaderRef = useScrollReveal<HTMLDivElement>();
+    const contactCardsRef = useScrollReveal<HTMLDivElement>(0.1);
+    const contactCtaRef = useScrollReveal<HTMLDivElement>();
+
     return (
         <div className="min-h-screen">
             <Header />
@@ -41,7 +50,7 @@ const DoctorProfile = () => {
                     <div className="container mx-auto px-4 relative z-10 py-7">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             {/* Doctor Image */}
-                            <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+                            <div ref={heroImgRef} className="flex justify-center lg:justify-end order-1 lg:order-2 reveal-right">
                                 <div className="relative">
                                     <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-3xl" />
                                     <img
@@ -53,7 +62,7 @@ const DoctorProfile = () => {
                             </div>
 
                             {/* Doctor Info */}
-                            <div className="order-2 lg:order-1 text-center lg:text-left">
+                            <div ref={heroInfoRef} className="order-2 lg:order-1 text-center lg:text-left reveal-left">
                                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 text-primary-foreground rounded-full text-sm font-medium backdrop-blur-sm mb-4">
                                     <CheckCircle className="w-4 h-4" />
                                     Expert Dental Care
@@ -101,7 +110,7 @@ const DoctorProfile = () => {
                 {/* Qualifications Section */}
                 <section className="py-20 bg-background">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
+                        <div ref={qualHeaderRef} className="text-center mb-12 reveal">
                             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                                 Professional Credentials
                             </h2>
@@ -110,13 +119,13 @@ const DoctorProfile = () => {
                             </p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                        <div ref={qualGridRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                             {qualifications.map((qual, index) => {
                                 const Icon = qual.icon;
                                 return (
                                     <div
                                         key={index}
-                                        className="
+                                        className={`
           group
           bg-card rounded-2xl p-6
           border border-border
@@ -124,7 +133,8 @@ const DoctorProfile = () => {
           hover:-translate-y-2
           hover:shadow-xl hover:shadow-primary/10
           hover:border-primary/50
-        "
+          reveal reveal-delay-${index + 1}
+        `}
                                     >
                                         {/* Icon */}
                                         <div
@@ -198,7 +208,7 @@ const DoctorProfile = () => {
                 <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
                     <div className="container mx-auto px-4">
                         <div className="max-w-4xl mx-auto">
-                            <div className="text-center mb-12">
+                            <div ref={contactHeaderRef} className="text-center mb-12 reveal">
                                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                                     Get In Touch
                                 </h2>
@@ -207,7 +217,7 @@ const DoctorProfile = () => {
                                 </p>
                             </div>
 
-                            <div className="grid md:grid-cols-2 gap-6">
+                            <div ref={contactCardsRef} className="grid md:grid-cols-2 gap-6">
                                 {/* Phone Card */}
                                 <a
                                     href="tel:+917621833473"
@@ -256,7 +266,7 @@ const DoctorProfile = () => {
                             </div>
 
                             {/* CTA Section */}
-                            <div className="mt-12 text-center bg-card rounded-2xl p-8 shadow-lg border border-border">
+                            <div ref={contactCtaRef} className="mt-12 text-center bg-card rounded-2xl p-8 shadow-lg border border-border reveal">
                                 <h3 className="text-2xl font-bold text-foreground mb-4">
                                     Ready to Transform Your Smile?
                                 </h3>

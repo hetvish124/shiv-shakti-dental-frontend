@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Testimonials = () => {
   const testimonials = [
@@ -69,6 +70,9 @@ const Testimonials = () => {
   const indexRef = useRef(0);
   const intervalRef = useRef<number | null>(null);
 
+  const headerRef = useScrollReveal<HTMLDivElement>();
+  const ctaRef = useScrollReveal<HTMLDivElement>();
+
   // Duplicate testimonials for infinite loop
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
@@ -112,7 +116,7 @@ const Testimonials = () => {
     <section id="testimonials" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-16 reveal">
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
             Patient Reviews
           </span>
@@ -182,7 +186,7 @@ const Testimonials = () => {
         </div>
 
         {/* Google Reviews CTA */}
-        <div className="text-center mt-12">
+        <div ref={ctaRef} className="text-center mt-12 reveal">
           <a
             href="https://www.google.com/maps/place/Shiv+Shakti+Dental+Clinic/@23.1689269,72.6401287,916m/data=!3m1!1e3!4m8!3m7!1s0x395c2b006091d467:0xe8c76663ca012fa2!8m2!3d23.1689269!4d72.6401287!9m1!1b1!16s%2Fg%2F11vwsc2y9t?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
             target="_blank"

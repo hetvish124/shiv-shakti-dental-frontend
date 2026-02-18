@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -15,6 +16,10 @@ const Contact = () => {
     preferredDate: "",
     message: "",
   });
+
+  const headerRef = useScrollReveal<HTMLDivElement>();
+  const leftRef = useScrollReveal<HTMLDivElement>(0.1);
+  const formRef = useScrollReveal<HTMLDivElement>(0.1);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,7 +75,7 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-16 reveal">
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
             Contact Us
           </span>
@@ -85,21 +90,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Map & Address */}
-          <div className="space-y-6">
-            {/* Google Map */}
-            {/* <div className="rounded-xl overflow-hidden shadow-lg h-64 lg:h-80">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.0644261544073!2d72.62859231541167!3d23.18759598487567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2a3c9618d2ed%3A0x8a15bc9d4c8f4e1a!2sFortune%20Atlantis!5e0!3m2!1sen!2sin!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Shiv Shakti Dental Clinic Location"
-              />
-            </div> */}
-
+          <div ref={leftRef} className="space-y-6 reveal-left">
             {/* Address Card */}
             <Card>
               <CardContent className="p-6">
@@ -145,7 +136,7 @@ const Contact = () => {
             {/* Contact Info Grid */}
             <div className="grid grid-cols-2 gap-4">
               {contactInfo.map((item, index) => (
-                <Card key={index}>
+                <Card key={index} className={`reveal reveal-delay-${index + 1}`}>
                   <CardContent className="p-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -178,108 +169,110 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="h-fit">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-semibold text-card-foreground mb-6">
-                Request an Appointment
-              </h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-foreground mb-1.5"
-                  >
-                    Full Name *
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Enter your full name"
-                    required
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
+          <div ref={formRef} className="reveal-right">
+            <Card className="h-fit">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-semibold text-card-foreground mb-6">
+                  Request an Appointment
+                </h3>
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label
-                      htmlFor="phone"
+                      htmlFor="name"
                       className="block text-sm font-medium text-foreground mb-1.5"
                     >
-                      Phone Number *
+                      Full Name *
                     </label>
                     <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
+                      id="name"
+                      name="name"
+                      value={formData.name}
                       onChange={handleChange}
-                      placeholder="+91 98765 43210"
+                      placeholder="Enter your full name"
                       required
                     />
                   </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-foreground mb-1.5"
+                      >
+                        Phone Number *
+                      </label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+91 98765 43210"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-foreground mb-1.5"
+                      >
+                        Email
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+
                   <div>
                     <label
-                      htmlFor="email"
+                      htmlFor="preferredDate"
                       className="block text-sm font-medium text-foreground mb-1.5"
                     >
-                      Email
+                      Preferred Date & Time
                     </label>
                     <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
+                      id="preferredDate"
+                      name="preferredDate"
+                      type="datetime-local"
+                      value={formData.preferredDate}
                       onChange={handleChange}
-                      placeholder="your@email.com"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label
-                    htmlFor="preferredDate"
-                    className="block text-sm font-medium text-foreground mb-1.5"
-                  >
-                    Preferred Date & Time
-                  </label>
-                  <Input
-                    id="preferredDate"
-                    name="preferredDate"
-                    type="datetime-local"
-                    value={formData.preferredDate}
-                    onChange={handleChange}
-                  />
-                </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-foreground mb-1.5"
+                    >
+                      Message / Concerns
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell us about your dental concerns or any questions you have..."
+                      rows={4}
+                    />
+                  </div>
 
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-foreground mb-1.5"
-                  >
-                    Message / Concerns
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your dental concerns or any questions you have..."
-                    rows={4}
-                  />
-                </div>
+                  <Button type="submit" className="w-full" size="lg">
+                    Request Appointment
+                  </Button>
 
-                <Button type="submit" className="w-full" size="lg">
-                  Request Appointment
-                </Button>
-
-                <p className="text-sm text-muted-foreground text-center">
-                  We&apos;ll confirm your appointment within 24 hours.
-                </p>
-              </form>
-            </CardContent>
-          </Card>
+                  <p className="text-sm text-muted-foreground text-center">
+                    We&apos;ll confirm your appointment within 24 hours.
+                  </p>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

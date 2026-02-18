@@ -1,6 +1,11 @@
 import { Heart, Cpu, Users } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const WhyChooseUs = () => {
+  const headerRef = useScrollReveal<HTMLDivElement>();
+  const featuresRef = useScrollReveal<HTMLDivElement>(0.1);
+  const statsRef = useScrollReveal<HTMLDivElement>(0.1);
+
   const features = [
     {
       icon: Heart,
@@ -26,7 +31,7 @@ const WhyChooseUs = () => {
     <section id="why-us" className="py-20 bg-card">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-16 reveal">
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
             Why Choose Us
           </span>
@@ -40,11 +45,11 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div ref={featuresRef} className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="text-center p-8 rounded-2xl bg-background hover:shadow-xl transition-all duration-300 group"
+              className={`text-center p-8 rounded-2xl bg-background hover:shadow-xl transition-all duration-300 group reveal reveal-delay-${index + 1}`}
             >
               {/* Icon */}
               <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
@@ -63,14 +68,17 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div ref={statsRef} className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { number: "10,000+", label: "Happy Patients" },
             { number: "15+", label: "Years Experience" },
             { number: "98%", label: "Patient Satisfaction" },
             { number: "5★", label: "Google Rating" },
           ].map((stat, index) => (
-            <div key={index} className="text-center">
+            <div
+              key={index}
+              className={`text-center reveal-scale reveal-delay-${index + 1}`}
+            >
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
                 {stat.number}
               </div>

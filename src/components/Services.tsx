@@ -1,7 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, Shield, Sparkles, Smile, Scissors, Heart, Crown, Zap } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Services = () => {
+  const headerRef = useScrollReveal<HTMLDivElement>();
+  const gridRef = useScrollReveal<HTMLDivElement>(0.05);
+
   const services = [
     {
       icon: Search,
@@ -105,7 +109,7 @@ const Services = () => {
     <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-16 reveal">
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
             Our Services
           </span>
@@ -119,76 +123,61 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-  {services.map((service, index) => (
-    <Card
-      key={index}
-      className="
-        group relative
-        border-border/50
-        transition-all duration-300 ease-out
-        hover:-translate-y-2
-        hover:shadow-xl hover:shadow-primary/10
-        hover:border-primary/30
-      "
-    >
-      <CardContent className="p-6">
-        {/* Icon */}
-        <div
-          className="
-            w-14 h-14 mb-5
-            bg-primary/10 rounded-xl
-            flex items-center justify-center
-            transition-all duration-300 ease-out
-            group-hover:bg-primary
-            group-hover:scale-110
-            group-hover:rotate-3
-          "
-        >
-          <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service, index) => (
+            <Card
+              key={index}
+              className={`
+                group relative
+                border-border/50
+                transition-all duration-300 ease-out
+                hover:-translate-y-2
+                hover:shadow-xl hover:shadow-primary/10
+                hover:border-primary/30
+                reveal reveal-delay-${Math.min(index + 1, 12)}
+              `}
+            >
+              <CardContent className="p-6">
+                {/* Icon */}
+                <div
+                  className="
+                    w-14 h-14 mb-5
+                    bg-primary/10 rounded-xl
+                    flex items-center justify-center
+                    transition-all duration-300 ease-out
+                    group-hover:bg-primary
+                    group-hover:scale-110
+                    group-hover:rotate-3
+                  "
+                >
+                  <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                </div>
+
+                {/* Content */}
+                <h3
+                  className="
+                    text-xl font-semibold text-card-foreground mb-3
+                    transition-all duration-300
+                    group-hover:-translate-y-1
+                  "
+                >
+                  {service.title}
+                </h3>
+
+                <p
+                  className="
+                    text-muted-foreground mb-4 leading-relaxed
+                    transition-all duration-300
+                    group-hover:-translate-y-1
+                    group-hover:opacity-90
+                  "
+                >
+                  {service.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
-
-        {/* Content */}
-        <h3
-          className="
-            text-xl font-semibold text-card-foreground mb-3
-            transition-all duration-300
-            group-hover:-translate-y-1
-          "
-        >
-          {service.title}
-        </h3>
-
-        <p
-          className="
-            text-muted-foreground mb-4 leading-relaxed
-            transition-all duration-300
-            group-hover:-translate-y-1
-            group-hover:opacity-90
-          "
-        >
-          {service.description}
-        </p>
-
-        {/* CTA (optional) */}
-        {/*
-        <Button
-          variant="outline"
-          className="
-            w-full
-            transition-all duration-300
-            group-hover:bg-primary
-            group-hover:text-primary-foreground
-          "
-        >
-          {service.cta}
-        </Button>
-        */}
-      </CardContent>
-    </Card>
-  ))}
-</div>
-
       </div>
     </section>
   );

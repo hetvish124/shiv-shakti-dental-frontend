@@ -10,13 +10,13 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      {/* Background Image with Ken-Burns zoom + Overlay */}
+      <div className="absolute inset-0 z-0 hero-fade-in hero-delay-1">
         <img
           src={heroImage}
           alt="Modern dental clinic with professional staff"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover hero-bg-zoom"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/60" />
       </div>
@@ -24,7 +24,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl">
           {/* Trust Badges */}
-          <div className="flex flex-wrap gap-3 mb-6">
+          <div className="flex flex-wrap gap-3 mb-6 hero-fade-up hero-delay-1">
             {trustBadges.map((badge) => (
               <span
                 key={badge}
@@ -37,24 +37,26 @@ const Hero = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-foreground leading-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-foreground leading-tight mb-6 hero-fade-up hero-delay-2">
             Experience{" "}
             <span className="text-primary">Pain-Free Dentistry</span> with
             Expert Care You Can Trust
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-secondary-foreground/80 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-secondary-foreground/80 mb-8 leading-relaxed hero-fade-up hero-delay-3">
             Join 10,000+ happy smiles in Gandhinagar. Our gentle approach and
             advanced digital dentistry ensure comfortable, stress-free
             treatments for you and your family.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="text-lg px-8  transition-transform duration-300 ease-out
-    hover:-translate-y-1
-    active:translate-y-0" asChild>
+          <div className="flex flex-col sm:flex-row gap-4 hero-fade-up hero-delay-4">
+            <Button
+              size="lg"
+              className="text-lg px-8 transition-transform duration-300 ease-out hover:-translate-y-1 active:translate-y-0"
+              asChild
+            >
               <a
                 href="https://wa.me/917621833473?text=Hi, I would like to book an appointment at Shiv Shakti Dental Clinic"
                 target="_blank"
@@ -86,9 +88,9 @@ const Hero = () => {
                     const timeElapsed = currentTime - start;
                     const progress = Math.min(timeElapsed / duration, 1);
                     const ease = easeInOutCubic(progress);
-                    
+
                     window.scrollTo(0, startPosition + distance * ease);
-                    
+
                     if (timeElapsed < duration) {
                       requestAnimationFrame(animation);
                     }
@@ -103,7 +105,7 @@ const Hero = () => {
           </div>
 
           {/* Location Badge */}
-          <div className="mt-8 inline-flex items-center gap-2 text-secondary-foreground/70">
+          <div className="mt-8 inline-flex items-center gap-2 text-secondary-foreground/70 hero-fade-up hero-delay-5">
             <a
               href="https://www.google.com/maps/place/Shiv+Shakti+Dental+Clinic/@23.1689269,72.6401287,916m/data=!3m2!1e3!4b1!4m6!3m5!1s0x395c2b006091d467:0xe8c76663ca012fa2!8m2!3d23.1689269!4d72.6401287!16s%2Fg%2F11vwsc2y9t?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
               target="_blank"
